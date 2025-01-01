@@ -30,7 +30,7 @@ const addCertificate = async (req, res) => {
     let uploadedUrls = fileUrl;
 
     // Save URLs to MongoDB
-    const Certificates = await certificateModel.insertOne({
+    const Certificates = await certificateModel.create({
       urls: uploadedUrls,
       certificateName: certificateName,
     });
