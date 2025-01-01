@@ -1,11 +1,20 @@
 import mongoose from "../mondoDb/DbClient.js";
 
-const CertificateSchema = new mongoose.Schema({
-    urls: [String], // Array to store multiple image URLs
-    programName: String,
-    
-  });
-  
-  export default new mongoose.model("Image", CertificateSchema);
+const CertificateSchema = new mongoose.Schema(
+  {
+    urls: {
+      type: String,
+      required: true,
+    },
+    certificateName: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+    collection: "Certificate",
+  }
+);
 
-  
+export default new mongoose.model("Certificate", CertificateSchema);
